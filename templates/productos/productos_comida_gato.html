@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+<title>
+	{% block titulopestana %}
+
+    Michis
+
+	{% endblock %}
+
+</title>
+
+
+{% block titulo %}
+
+
+<h1> Aca va el contenido de  comida de los michis...</h1>
+
+<p style="text-align:center;"><img src="https://www.zoobio.es/blog/wp-content/uploads/sites/4/2018/04/1.jpg" width="800" height="500" >
+
+<br>
+{% for comida in comida_gato %}
+<p style="text-align:center;"><div class="card float-left col-12 col-md-5">
+  <img src="https://img.freepik.com/vector-gratis/gato-patrones-fisuras-gatito-cabeza-pata-huella-ilustracion_71328-632.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h4 class="card-title"> {{comida.name}}</h4>
+    <p class="card-text">Descripción: {{comida.description}}
+                     <br>Precio: {{comida.price}}
+    <a href="/crud/detail_product/{{comida.id}}/" class="btn btn-primary">Detalles</a>
+
+  </div>
+</div>
+
+{% endfor%}
+
+
+{% endblock %}
+

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+<title>
+	{% block titulopestana %}
+
+    Productos
+
+	{% endblock %}
+
+</title>
+
+
+{% block titulo %}
+
+
+<br><br><h1>Aca va el contenido de collares y correas...</h1>
+
+<p style="text-align:center;"><img src="https://www.hogarmania.com/archivos/201707/correas-para-perros-XxXx80.jpg" width="800" height="500">
+
+{% for collar in collares %}
+
+<p style="text-align:center;"><div class="card float-left" style="width: 18rem;">
+  <img src="https://cdn-icons-png.flaticon.com/512/21/21537.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{collar.name}}</h5>
+    <p class="card-text">{{collar.description}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">${{collar.price}}</li>
+  </ul>
+  <div class="card-body">
+    <a href="/crud/detail_product/{{collar.id}}/" class="card-link">Detalles</a>
+  </div>
+</div>
+
+
+
+{% endfor %}
+
+{% for correa in correas %}
+
+<p style="text-align:center;"><div class="card float-left" style="width: 18rem;">
+  <img src="https://cdn-icons-png.flaticon.com/512/21/21537.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{correa.name}}</h5>
+    <p class="card-text">{{correa.description}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">${{correa.price}}</li>
+  </ul>
+  <div class="card-body">
+    <a href="/crud/detail_product/{{collar.id}}/" class="card-link">Detalles</a>
+  </div>
+</div>
+
+
+
+{% endfor %}
+
+{% endblock %}
+

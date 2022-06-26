@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+<title>
+	{% block titulopestana %}
+
+    Crear Productos
+
+	{% endblock %}
+
+</title>
+
+{% block titulo %}
+
+
+
+<form  action="" method="POST">
+	<table>
+		<br><h1>Realizar el ingreso de un nuevo producto.</h1><br>
+
+		{% if form %}
+
+			{% csrf_token %}
+
+			<br>{{form.as_table}}
+
+	</table>
+	<input type="submit", value="Enviar">
+</form>
+		{% elif new_product %}
+
+			<p style="text-align:center;"><div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{new_product.name}}</h5>
+    <p class="card-text">{{new_product.description}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">${{new_product.price}}</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Editar</a>
+    <a href="#" class="card-link">Eliminar</a>
+  </div>
+		{% endif %}
+
+{% endblock %}
+

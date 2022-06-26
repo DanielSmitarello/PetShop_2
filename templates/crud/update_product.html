@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+<title>
+	{% block titulopestana %}
+
+    Actualizar
+
+	{% endblock %}
+
+</title>
+
+{% block titulo %}
+
+Modificiar un producto...
+
+<h2 style="text-align:center;"> Complete los campos a actualizar</h2>
+<form  action="" method="POST" style="margin-left:40rem;margin-top:7rem">
+	<table>
+		<br><h1>Realizar el ingreso de un nuevo producto.</h1><br>
+
+		{% if form %}
+
+			{% csrf_token %}
+
+			<br>{{form.as_table}}
+
+	</table>
+	<input type="submit", value="Enviar">
+</form>
+{% endif %}
+
+{% endblock %}
+

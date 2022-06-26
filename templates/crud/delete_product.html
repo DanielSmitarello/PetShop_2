@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+<title>
+	{% block titulopestana %}
+
+    Borrar
+
+	{% endblock %}
+
+</title>
+
+{% block titulo %}
+
+Borrar un producto...
+
+
+
+  {% if product %}
+
+    <form action="/crud/delete_product/{{product.id}}/" method="POST">{% csrf_token %}
+
+
+    <h3 style="color:red">"Estas por eliminar el producto {{product.name}}, estás seguro?"</h3>
+
+
+      <button class="btn btn-danger my-2 my-sm-0" type="submit">Eliminar</button>
+
+    </form>
+
+  {% else %}
+
+     {{message}}
+    {{error}}
+
+  {% endif %}
+
+{% endblock %}
+
+
