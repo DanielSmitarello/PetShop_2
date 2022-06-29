@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from django.urls import path, include
-from petshop.views import productos_comida_perro, index, create_product_view, productos_comida_gato, productos_correa_collar, detail_product, delete_product, Update_product # create_product
+from petshop.views import productos_comida_perro, index, create_product_view, productos_comida_gato, productos_correa_collar, detail_product, delete_product, Update_product, search_product # create_product
 
 
 urlpatterns = [
@@ -30,6 +30,6 @@ urlpatterns = [
     path('crud/detail_product/<int:pk>/', detail_product, name='crud/detail_product'),
     path('crud/delete_product/<int:pk>/', delete_product, name='crud/delete_product'),
     path('crud/update_product/<int:pk>/', Update_product.as_view(), name='crud/update_product'),
+    path('search/search_product/', search_product, name= 'search/search_product'),
     # path('petshop/', include('petshop.urls')) # registro de la app
-
 ]

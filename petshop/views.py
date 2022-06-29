@@ -96,3 +96,9 @@ class Update_product(UpdateView):
 
     def get_success_url(self):
         return reverse('crud/detail_product', kwargs = {'pk':self.object.pk})
+
+def search_product(request):
+    print(request.GET)
+    busquedas = Productos.objects.filter(description__icontains=request.GET['search'])
+    context= {'busquedas':busquedas}
+    return render(request, 'search/search_product.html', context=context)
