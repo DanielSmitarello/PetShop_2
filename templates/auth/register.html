@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+<title>
+	{% block titulopestana %}
+
+    Login
+
+	{% endblock %}
+
+</title>
+
+{% block titulo %}
+
+<h2 style= "margin-left:40rem">complete los campos para registrarse</h2>
+<form action= "" method="POST" style= "margin-left:40rem">
+	<table>
+		{% if form %}
+
+			{% csrf_token %}
+
+			<br>{{form.as_table}}
+
+	</table>
+	<input type="submit", value="iniciar sesion">
+    <h6>{{errors}}</h6>
+</form>
+{%endif%}
+{% endblock %}

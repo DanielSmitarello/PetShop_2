@@ -13,8 +13,8 @@
     </title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-  <a class="navbar-brand" href="/">Petshop</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <a class="navbar-brand">Petshop</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -24,7 +24,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" style="margin-right: 60rem">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
               Productos
             </a>
@@ -36,11 +36,24 @@
               <a class="dropdown-item" href="/productos/productos_correa_collar/">Correas y collares</a>
             </div>
       </li>
+      {% if request.user.is_authenticated %}
+      
+      <div class="d-inline p-2 bg-primary text-white">{{request.user.username}}</div>
 
+      <img src="{{request.user.user_profile.profile_img.url}}" href="/users/profile/" style="height: 3rem;"data-toggle="tooltip" data-placement="bottom" title="Editar perfil">
+       
+      <a class="btn btn-danger" href="/auth/logout/">cerrar sesion <span class="sr-only">(current)</span></a>
+      {% else %}
+      <a class="btn btn-success" href="/auth/login/">iniciar sesion <span class="sr-only">(current)</span></a>
+      <a class="btn btn-warning" href="/auth/register/">registrate <span class="sr-only">(current)</span></a>
+      {% endif %}
     </ul>
     <form class="form-inline my-2 my-lg-0" action="/search_product/" method="GET">
       <input class="form-control mr-sm-2" type="text" placeholder="Buscar Producto" name="search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+      <button class="btn btn-primary" type="submit">
+        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+        Buscar...
+      </button>
     </form>
   </div>
 </nav>

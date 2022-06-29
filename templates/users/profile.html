@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+<title>
+	{% block titulopestana %}
+
+    Perfil
+
+	{% endblock %}
+
+</title>
+
+
+{% block titulo %}
+
+
+Nombre {{User_profile.name}}
+Apellido {{User_profile.suername}}
+correo: {{User_profile.mail}}
+Mascota: {{User_profile.pet_name}}
+
+
+{% endblock %}

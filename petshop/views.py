@@ -4,6 +4,8 @@ from petshop.forms import Product_form
 from django.http import HttpResponse
 from django.views.generic import UpdateView
 from django.urls import reverse
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
@@ -20,6 +22,7 @@ def index(request):
 #     context = {'form':form}
 #     return render(request, 'create_product.html', context=context)
 
+@login_required
 def create_product_view(request):
     if request.method == 'GET':
         form = Product_form()
@@ -70,7 +73,7 @@ def detail_product(request, pk):
         context={'error':'El producto no existe'}
         return render(request, 'crud/detail_product.html',context=context)
 
-
+@login_required
 def delete_product(request, pk):
     try:
         if request.method == 'GET':
@@ -89,7 +92,7 @@ def delete_product(request, pk):
         context={'error':'El producto que se busca eliminar no existe'}
         return render(request, 'crud/delete_product.html', context=context)
 
-class Update_product(UpdateView):
+class Update_product(LoginRequiredMixin,UpdateView):
     model = Productos
     template_name = 'crud/update_product.html'
     fields = '__all__'
