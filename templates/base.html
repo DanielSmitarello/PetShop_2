@@ -40,12 +40,25 @@
       
       <div class="d-inline p-2 bg-primary text-white">{{request.user.username}}</div>
 
-      <img src="{{request.user.user_profile.profile_img.url}}" href="/users/profile/" style="height: 3rem;"data-toggle="tooltip" data-placement="bottom" title="Editar perfil">
+      <img src="{{request.user.user_profile.profile_img.url}}" style="height: 3rem;"data-toggle="tooltip" data-placement="bottom">
        
-      <a class="btn btn-danger" href="/auth/logout/">cerrar sesion <span class="sr-only">(current)</span></a>
+      <li class="nav-item dropdown" style="margin-right: 60rem">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+          Cuenta
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <img src="{{request.user.user_profile.profile_img.url}}" style="height: 3rem;"data-toggle="tooltip" data-placement="bottom">
+          <div class="dropdown"></div>
+          <a class="dropdown-item" href="/auth/logout/">cerrar sesion</a>
+          <div class="dropdown"></div>
+          <a class="dropdown-item" href="/users/profile/">ver perfil</a>
+          <div class="dropdown"></div>
+          <a class="dropdown-item" href="/users/create_profile/">crear perfil</a>
+        </div>
+      </li>
       {% else %}
-      <a class="btn btn-success" href="/auth/login/">iniciar sesion <span class="sr-only">(current)</span></a>
-      <a class="btn btn-warning" href="/auth/register/">registrate <span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="/auth/login/">iniciar sesion <span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="/auth/register/">registrate <span class="sr-only">(current)</span></a>
       {% endif %}
     </ul>
     <form class="form-inline my-2 my-lg-0" action="/search_product/" method="GET">

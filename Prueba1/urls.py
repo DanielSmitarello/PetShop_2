@@ -17,9 +17,9 @@ from django.contrib import admin
 from django.urls import path
 
 from django.urls import path, include
-from Prueba1.views import login_view, logout_view, register_view
+from users.views import login_view, logout_view, register_view
 from petshop.views import productos_comida_perro, index, create_product_view, productos_comida_gato, productos_correa_collar, detail_product, delete_product, Update_product # create_product
-from users.views import user_profile
+from users.views import user_profile,delete_profile,create_profile,update_profile
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
@@ -40,6 +40,9 @@ urlpatterns = [
 
 
     path('users/profile/',user_profile, name = 'profile'),
+    path('users/create_profile/',create_profile, name = 'create_profile'),
+    path('users/update_profile/',update_profile, name = 'update_profile'),
+    path('users/delete_profile/',delete_profile, name = 'delete_profile'),
 
 
 

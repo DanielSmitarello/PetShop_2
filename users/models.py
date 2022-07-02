@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 # Create your models here.
 
 class User_profile(models.Model):
@@ -8,7 +9,7 @@ class User_profile(models.Model):
     surname = models.CharField(max_length=30)
     mail = models.CharField(max_length = 30)
     pet_name= models.CharField(max_length = 30)
-    profile_img = models.ImageField(upload_to='profile_image', null = True)
+    profile_img = models.ImageField(upload_to='profile_image', null = True, blank=True)
 
 
     class Meta:
