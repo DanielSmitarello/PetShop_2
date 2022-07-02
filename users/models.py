@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class User_profile(models.Model):
-    user = models.OneToOneField(User, on_delete = models.CASCADE, related_name='user_profile')
+    user = models.OneToOneField(User, on_delete = models.CASCADE) #related_name='user_profile')
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     mail = models.CharField(max_length = 30)

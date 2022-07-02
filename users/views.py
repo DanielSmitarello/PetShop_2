@@ -122,12 +122,13 @@ def delete_profile(request):
         if request.method == 'GET':
             users = User_profile.objects.get()
             context = {'users':users}
+            return render(request, 'users/delete_profile.html', context=context)
+
         else:
             users = User_profile.objects.get()
             users.delete()
             context = {'messege':'Perfil eliminado'}
-
-        return render(request, 'users/delete_profile.html', context=context)
+            return render(request, 'users/delete_profile.html', context=context)
 
     except:
         context = {'error':'el perfil no existe'}

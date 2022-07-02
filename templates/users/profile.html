@@ -14,7 +14,7 @@
 <div class="card" style="width: 18rem;" style="align-content:center;">
     <img src="{{request.user.user_profile.profile_img.url}}"  class="card-img-top" alt="profile_img">
     <div class="card-body">
-    <p class="card-text">{{request.user.user_profile.name}}</p>
+    <p class="card-text">{{request.user.user_profile.name}} {{request.user.user_profile.surname}}</p>
     <p class="card-text">{{request.user.user_profile.mail}}</p>
     <p class="card-text">Mi mascota se llama:{{request.user.user_profile.pet_name}}</p>
     <a href="/users/update_profile/" class="btn btn-primary">Editar</a>

@@ -37,11 +37,8 @@
             </div>
       </li>
       {% if request.user.is_authenticated %}
-      
-      <div class="d-inline p-2 bg-primary text-white">{{request.user.username}}</div>
-
+            <div class="d-inline p-2 bg-primary text-white">{{request.user.username}}</div>
       <img src="{{request.user.user_profile.profile_img.url}}" style="height: 3rem;"data-toggle="tooltip" data-placement="bottom">
-       
       <li class="nav-item dropdown" style="margin-right: 60rem">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
           Cuenta
