@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+<title>
+	{% block titulopestana %}
+
+    Actualizar
+
+	{% endblock %}
+
+</title>
+
+{% block titulo %}
+
+{% if request %}
+
+<h3>Esta por eliminar su perfil, esta seguro de continuar {{request.user.user_profile.name}}??</h3>
+
+    <form  action="/users/delete_profile/" method="POST" style="margin-left:40rem;margin-top:7rem">
+		{% csrf_token %}
+	    <button class="btn btn-danger" type="submit", value="Enviar">Eliminar</button>
+    </form>
+{% else %}
+    {{message}}
+{% endif %}
+
+
+
+{% endblock %}
