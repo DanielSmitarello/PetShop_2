@@ -35,9 +35,11 @@
               <div class="dropdown"></div>
               <a class="dropdown-item" href="/productos/productos_correa_collar/">Correas y collares</a>
               {% if request.user.is_authenticated %}
-              <a class="dropdown-item" href='/crud/create_product/'>Crear producto</a>
+              <div class="dropdown"></div>
+              <a class="dropdown-item" href="/crud/create_product/">Crear Producto</a>
               {% else %}
-              <a class="dropdown-item" href='/auth/login/'>inicie sesion para otras opciones</a>
+              <div class="dropdown"></div>
+              <a class="dropdown-item" href="/auth/login/">Inicie sesion para mas funciones</a>
               {%endif%}
             </div>
       </li>
