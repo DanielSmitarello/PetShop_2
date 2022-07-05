@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from petshop.models import Productos
+from petshop.models import Productos, Oferta
 from petshop.forms import Product_form
 from django.http import HttpResponse
 from django.views.generic import UpdateView
@@ -9,10 +9,9 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
-    context = {
-    }
+    promo = Oferta.objects.all()
+    context = {'promo':promo}
     return render(request, 'index.html', context = context)
-
 # def create_product(request):
 #     context={}
 #     return render(request, 'create_product.html', context=context)

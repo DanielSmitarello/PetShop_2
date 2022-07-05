@@ -9,13 +9,27 @@
 
 </title>
 
-{% block titulo %}
 
+{% block titulo %}
 Inicio Petshop...
 {{message}}
 {{error}}
 
-<img src="https://molaspetshop.com.ar/wp-content/uploads/2020/10/CARRUSEL-3-scaled.jpg" class="card-img-top" alt="...">
+<h1> Ofertas de la semana</h1>
+
+<br>
+{% for ofer in promo %}
+<p style="text-align:center;"><div class="card float-left col-12 col-md-5">
+  <img src="{{ofer.promo_img.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h4 class="card-title"> {{ofer.name}}</h4>
+    <p class="card-text">Descripción: {{ofer.description}}
+  </div>
+</div>
+
+{% endfor%}
+
 
 {% endblock %}
+
 

@@ -27,3 +27,17 @@ class Categoria(models.Model):
 
     def __str__(self):
         return self.name
+
+#ofertas index
+class Oferta(models.Model):
+    name = models.CharField(max_length=20)
+    description = models.CharField(max_length=200,blank = True, null=True)
+    promo_img = models.ImageField(upload_to='promo_image', null = True, blank=True)
+
+
+    class Meta:
+        verbose_name = 'Oferta'
+        verbose_name_plural = 'Ofertas'
+
+    def __str__(self):
+        return self.name
