@@ -34,6 +34,11 @@
               <a class="dropdown-item" href="/productos/productos_comida_gato/">Comida Gatos</a>
               <div class="dropdown"></div>
               <a class="dropdown-item" href="/productos/productos_correa_collar/">Correas y collares</a>
+              {% if request.user.is_authenticated %}
+              <a class="dropdown-item" href='/crud/create_product/'>Crear producto</a>
+              {% else %}
+              <a class="dropdown-item" href='/auth/login/'>inicie sesion para otras opciones</a>
+              {%endif%}
             </div>
       </li>
       {% if request.user.is_authenticated %}
@@ -49,8 +54,6 @@
           <a class="dropdown-item" href="/auth/logout/">cerrar sesion</a>
           <div class="dropdown"></div>
           <a class="dropdown-item" href="/users/profile/">ver perfil</a>
-          <div class="dropdown"></div>
-          <a class="dropdown-item" href="/users/create_profile/">crear perfil</a>
         </div>
       </li>
       {% else %}
