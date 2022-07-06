@@ -23,4 +23,4 @@ class Profile_form(forms.Form):
     surname = forms.CharField(max_length=30)
     mail = forms.CharField(max_length = 30)
     pet_name= forms.CharField(max_length = 30)
-    #profile_img = forms.ImageField()
+    profile_img = forms.ImageField()

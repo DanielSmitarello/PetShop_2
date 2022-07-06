@@ -84,37 +84,53 @@ def create_profile(request):
         context = {'form':form}
         return render(request, 'users/create_profile.html',context)
     else:
-        form = Profile_form(request.POST)
+        print(request.FILES)
         print(request.POST)
+        print(request.user)
+        print(type(request.user))
+        form = Profile_form(request.POST, request.FILES)
         if form.is_valid():
             new_profile = User_profile.objects.create(
+                user= request.user,
                 name = form.cleaned_data['name'],
                 surname =form.cleaned_data['surname'],
                 mail = form.cleaned_data['mail'],
                 pet_name= form.cleaned_data['pet_name'],
-                #profile_img =form.cleaned_data['profile_img'],
+                profile_img =form.cleaned_data['profile_img'],
             )
             context = {'new_profile':new_profile}
-        return render(request, 'users/create_profile.html',context)
+            return render(request, 'users/create_profile.html',context)
+        else:
+            context = {'error':form.errors}
+            print(form.errors)
+            return render(request, 'index.html', context = context)
 
 def update_profile(request):
     if request.method == 'GET':
         form = Profile_form()
         context = {'form':form}
         return render(request, 'users/update_profile.html',context)
+
     else:
-        form = Profile_form(request.POST)
+        print(request.FILES)
         print(request.POST)
+        form = Profile_form(request.POST, request.FILES)
         if form.is_valid():
             new_profile = User_profile.objects.update(
+                user = request.user,
                 name = form.cleaned_data['name'],
                 surname =form.cleaned_data['surname'],
                 mail = form.cleaned_data['mail'],
                 pet_name= form.cleaned_data['pet_name'],
-                #profile_img =form.cleaned_data['profile_img'],
+                profile_img =form.cleaned_data['profile_img'],
             )
             context = {'new_profile':new_profile}
-        return render(request, 'users/update_profile.html',context)
+            return render(request, 'users/update_profile.html',context = context)
+        else:
+            context = {'error':form.errors}
+            print(form.errors)
+        return render(request, 'index.html', context = context)
+
 
 #delete_profile
 def delete_profile(request):
@@ -128,7 +144,7 @@ def delete_profile(request):
             users = User_profile.objects.get()
             users.delete()
             context = {'messege':'Perfil eliminado'}
-            return render(request, 'users/delete_profile.html', context=context)
+            return render(request, 'index.html', context=context)
 
     except:
         context = {'error':'el perfil no existe'}

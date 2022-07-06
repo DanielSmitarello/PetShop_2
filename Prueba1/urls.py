@@ -18,13 +18,14 @@ from django.urls import path
 
 from django.urls import path, include
 from users.views import login_view, logout_view, register_view
-from petshop.views import productos_comida_perro, index, create_product_view, productos_comida_gato, productos_correa_collar, detail_product, delete_product, search_product, Update_product # create_product
+from petshop.views import productos_comida_perro, index, create_product_view, productos_comida_gato, productos_correa_collar, detail_product, delete_product, search_product,about ,Update_product # create_product
 from users.views import user_profile,delete_profile,create_profile,update_profile
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name = 'index'),
+    path('about/',about, name= 'about'),
     path('search/search_product/', search_product, name= 'search/search_product'),
     path('crud/create_product/', create_product_view, name= 'crud/create_product'),
     path('productos/productos_comida_perro/', productos_comida_perro, name='productos/productos_comida_perro'), # registro view de los productos comida perros

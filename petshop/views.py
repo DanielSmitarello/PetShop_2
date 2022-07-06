@@ -12,6 +12,10 @@ def index(request):
     promo = Oferta.objects.all()
     context = {'promo':promo}
     return render(request, 'index.html', context = context)
+
+def about(request):
+    context ={}
+    return render(request, 'about.html',context)
 # def create_product(request):
 #     context={}
 #     return render(request, 'create_product.html', context=context)
