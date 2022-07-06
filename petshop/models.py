@@ -9,6 +9,7 @@ class Productos(models.Model):
     SKU = models.CharField(max_length=30, unique=True)
     is_active = models.BooleanField(default=True)
     category = models.ForeignKey('Categoria', on_delete=models.CASCADE, related_name='petshop', null=True)
+    producto_img = models.ImageField(upload_to='producto_img', null=True, blank=True)
 
     class Meta:
         verbose_name = 'producto'

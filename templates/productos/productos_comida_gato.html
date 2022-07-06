@@ -19,8 +19,10 @@
 <br>
 {% for comida in comida_gato %}
 <p style="text-align:center;"><div class="card float-left col-12 col-md-5">
-  <img src="https://img.freepik.com/vector-gratis/gato-patrones-fisuras-gatito-cabeza-pata-huella-ilustracion_71328-632.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
+ {% if comida.producto_img %}
+    <img src="{{comida.producto_img.url}}" class="card-img-top" alt="...">
+  {% endif %}
+    <div class="card-body">
     <h4 class="card-title"> {{comida.name}}</h4>
     <p class="card-text">Descripción: {{comida.description}}
                      <br>Precio: {{comida.price}}

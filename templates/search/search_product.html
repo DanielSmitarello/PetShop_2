@@ -20,7 +20,7 @@
 <br>
 {% for busqueda in busquedas %}
 <p style="text-align:center;"><div class="card float-left col-12 col-md-5">
-  <img src="https://img.freepik.com/vector-gratis/gato-patrones-fisuras-gatito-cabeza-pata-huella-ilustracion_71328-632.jpg" class="card-img-top" alt="...">
+  <img src="{{busqueda.producto_img.url}}" class="card-img-top" alt="...">
   <div class="card-body">
     <h4 class="card-title"> {{busqueda.name}}</h4>
     <p class="card-text">Descripción: {{busqueda.description}}

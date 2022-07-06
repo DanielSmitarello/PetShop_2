@@ -17,8 +17,11 @@
 
 {% for collar in collares %}
 
-<p style="text-align:center;"><div class="card float-left" style="width: 18rem;">
-  <img src="https://cdn-icons-png.flaticon.com/512/21/21537.png" class="card-img-top" alt="...">
+  {% if collar.producto_img %}
+
+  <img src="{{collar.producto_img.url}}" class="card-img-top" alt="...">
+
+  {% endif %}
   <div class="card-body">
     <h5 class="card-title">{{collar.name}}</h5>
     <p class="card-text">{{collar.description}}</p>
@@ -38,7 +41,11 @@
 {% for correa in correas %}
 
 <p style="text-align:center;"><div class="card float-left" style="width: 18rem;">
-  <img src="https://cdn-icons-png.flaticon.com/512/21/21537.png" class="card-img-top" alt="...">
+  {% if correa.producto_img %}
+
+  <img src="{{correa.producto_img.url}}" class="card-img-top" alt="...">
+
+  {% endif %}
   <div class="card-body">
     <h5 class="card-title">{{correa.name}}</h5>
     <p class="card-text">{{correa.description}}</p>
